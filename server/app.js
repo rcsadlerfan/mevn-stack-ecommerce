@@ -33,5 +33,6 @@ app.get('/', (req, res) => {
 });
 
 app.use('/items', require('./routes/items'));
+app.use('/auth', require('./routes/auth'));
 
 app.listen(3000);
