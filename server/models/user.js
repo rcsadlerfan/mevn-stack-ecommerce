@@ -1,12 +1,12 @@
-const mognoose = require('mongoose');
+const mongoose = require('mongoose');
 const plm = require('passport-local-mongoose');
 
-const UserSchema = new mognoose.Schema({
+const UserSchema = new mongoose.Schema({
     username: String,
     password: String,
-    cart: {type: mognoose.Schema.Types.ObjectId, ref: 'Cart'}
+    cart: {type: mongoose.Schema.Types.ObjectId, ref: 'Cart'}
 });
 
 UserSchema.plugin(plm);
 
-module.exports = mongoose.module('User', UserSchema);
+module.exports = mongoose.model('User', UserSchema);
