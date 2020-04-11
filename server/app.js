@@ -3,6 +3,8 @@ app = express();
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const cors = require('cors');
+const morgan = require('morgan');
 
 const sess = {
     secret: "YEET THIS WILL BE YEETED LATER",
@@ -12,6 +14,8 @@ const sess = {
 
 app.use(session(sess));
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(morgan('combined'));
+app.use(cors());
 
 mongoose.connect('mongodb://localhost/ecommerce');
 
